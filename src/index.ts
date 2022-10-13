@@ -1,1 +1,5 @@
-export const INIT = 'init';
+import {useBem} from './hooks/useBem';
+
+export {
+  useBem,
+};
