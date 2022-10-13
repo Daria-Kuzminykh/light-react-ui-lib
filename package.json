@@ -5,11 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.js",
-  "prepublish": "npm run build && npm run test",
+  "prepublish": "npm run lint && npm run build && npm run test",
   "scripts": {
     "dev": "webpack --env development --watch",
     "build": "webpack --env production && npm run docs",
     "test": "jest --env=jsdom",
+    "lint": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
     "docs": "jsdoc2md --template ./README.hbs --files ./src/**/* --configure ./jsdoc2md.json > ./README.md"
   },
   "author": "Daria-Kuzminykh",
