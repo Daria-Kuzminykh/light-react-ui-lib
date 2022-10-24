@@ -1,0 +1,40 @@
+$default-scroll-width: 8px;
+$default-scroll-color: rgb(164, 110, 10);
+
+@mixin custom-scroll($width: $default-scroll-width, $color: $default-scroll-color) {
+  scrollbar-color: $color;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: $width;
+    height: 4px;
+    border-radius: 3px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background-color: var(--card-background);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $color;
+  }
+}
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: 0;
+}
+
+@mixin circle {
+  border-radius: 50%;
+}
