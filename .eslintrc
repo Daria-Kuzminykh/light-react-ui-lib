@@ -18,6 +18,7 @@
     "no-restricted-syntax": "off",
     "no-continue": "off",
     "@typescript-eslint/object-curly-spacing": "off",
+    "no-param-reassign": "off",
     "object-curly-spacing": ["error", "never"]
   }
 }
