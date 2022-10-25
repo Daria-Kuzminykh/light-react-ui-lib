@@ -8,6 +8,11 @@
       "declaration": true,
       "isolatedModules": true,
       "outDir": "./dist",
+      "paths": {
+        "@src": [
+          "./src/*"
+        ],
+      }
     },
     "include": [
       "src/**/*"

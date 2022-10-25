@@ -19,6 +19,7 @@
     "no-continue": "off",
     "@typescript-eslint/object-curly-spacing": "off",
     "no-param-reassign": "off",
+    "import/extensions": "off",
     "object-curly-spacing": ["error", "never"]
   }
 }

@@ -1,5 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const miniCss = require('mini-css-extract-plugin')
 
 module.exports =({development}) => ({
     mode: development ? 'development' : 'production',
@@ -11,7 +12,11 @@ module.exports =({development}) => ({
         clean: true
     },
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.ts', '.tsx'],
+        modules: [path.join(__dirname, './src'), 'node_modules'],
+        alias: {
+            '@src': path.resolve(__dirname, 'src'),
+         },
     },
     externals: {
         react: 'react'
@@ -19,8 +24,12 @@ module.exports =({development}) => ({
     module: {
         rules: [
             {
-                test: /\.scss/,
-                use: ['style-loader', 'scss-loader'],
+                test:/.(s*)css$/,
+                use: [
+                    miniCss.loader,
+                    'css-loader',
+                    'sass-loader',
+                ]
             },
             {
                 test: /\.(ts|tsx)?$/,
@@ -29,5 +38,10 @@ module.exports =({development}) => ({
             }
         ],
     },
-    plugins: [new ESLintPlugin({extensions: ['ts', 'tsx']})],
+    plugins: [
+        new ESLintPlugin({extensions: ['ts', 'tsx']}),
+        new miniCss({
+			filename: 'style.css',
+		}),
+    ],
 });
